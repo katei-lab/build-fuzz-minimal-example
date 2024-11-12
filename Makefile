@@ -5,10 +5,10 @@ all: $(OUTDIR) $(OUTDIR)/main
 $(OUTDIR):
 	mkdir -p $(OUTDIR)
 
-$(OUTDIR)/main: $(OUTDIR)/main.o
+$(OUTDIR)/main: $(OUTDIR)/main.o $(OUTDIR)/foo.o
 	$(CC) -o $@ $^
 
-$(OUTDIR)/main.o: main.c
+$(OUTDIR)/%.o: %.c
 	$(CC) -c -o $@ $^
 
 clean:
